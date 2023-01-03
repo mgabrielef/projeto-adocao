@@ -1,0 +1,10 @@
+{% for abrigo in abrigos %}
+<h2>{{ abrigo.nome }}</h2>
+<p> {{ abrigo.descricao }}</p>
+{% if abrigo.fotos %}
+<img src="{{ abrigo.fotos.url }}">
+{% endif %}
+<p> {{ abrigo.endereco }}</p>
+<p> {{ abrigo.redes_sociais }}</p>
+
+{% endfor %}
