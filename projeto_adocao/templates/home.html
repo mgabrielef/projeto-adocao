@@ -1,2 +1,7 @@
 <a href='addAbrigo'>ADICIONAR</a>
-<a href='listarAbrigos'>LISTAR</a>
+
+{% for abrigo in abrigos %}
+<h2><a href="{% url 'detailsAbrigo' abrigo.pk %}">{{ abrigo.nome }}</a></h2>
+<p> {{ abrigo.descricao }}</p>
+<hr>
+{% endfor %}

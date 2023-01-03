@@ -7,6 +7,11 @@ from .views import *
 urlpatterns = [
     path('', viewHome, name='home'),
     path('addAbrigo', viewAddAbrigo, name='addAbrigo'),
-    path('detailsAbrigo', viewAbrigoDetails, name='detailsAbrigo'),
-    path('listarAbrigos', viewGetAbrigo, name='listarAbrigos')
-] 
+    path('detailsAbrigo/<int:id>', viewAbrigoDetails, name='detailsAbrigo'),
+    path('deleteAbrigo/<int:id>', viewDeleteAbrigo, name='deleteAbrigo'),
+    path('updateAbrigo/<int:id>', viewUpdateAbrigo, name='updateAbrigo'),
+]
+
+if settings.DEBUG:
+        urlpatterns += static(settings.MEDIA_URL,
+                              document_root=settings.MEDIA_ROOT)

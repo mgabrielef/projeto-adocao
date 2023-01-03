@@ -69,9 +69,8 @@ TEMPLATES = [
     },
 ]
 
-MEDIA_ROOT =  os.path.join(BASE_DIR, 'img') 
-
-MEDIA_URL = 'assets/img/'
+MEDIA_ROOT =  os.path.join(BASE_DIR, 'image') 
+MEDIA_URL = '/image/'
 
 WSGI_APPLICATION = 'projeto_adocao.wsgi.application'
 
