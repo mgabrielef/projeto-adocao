@@ -6,6 +6,11 @@ from .forms import abrigoForm
 
 def viewHome(request):
     abrigos = Abrigo.objects.all()
+    query = request.GET.get("busca")
+    if query:
+        abrigos = Abrigo.objects.filter(nome__icontains=query)
+    else:
+        abrigos = Abrigo.objects.all()
     context = {'abrigos':abrigos}
     return render(request, 'home.html', context)
 
@@ -13,7 +18,7 @@ def viewHome(request):
 def viewAbrigoDetails(request, id):
     abrigo = get_object_or_404(Abrigo, pk=id)
     context = {'abrigo':abrigo}
-    return render(request, 'details.html', context)
+    return render(request, 'detailsAbrigo.html', context)
 
 
 def viewAddAbrigo(request):

@@ -1,8 +1,16 @@
-<div class="main">
-    <form method="POST">
-        {% csrf_token %}
-        Are you want to delete this item ?
-        <input type="submit" value="Yes" />
-        <a href="/">Cancel </a>
-    </form>
-</div>
+{% extends 'base.html' %}
+
+{% block title %}
+Deletar abrigo
+{% endblock title %}
+
+{% block content %}
+<form method="post">{% csrf_token %}
+    <h4>Tem certeza que deseja excluir "{{ abrigo.nome }}"?</h4>
+    <br/>
+<button type="submit" class="btn btn-primary">
+    Remover
+</button>
+</form>
+
+{% endblock content %}

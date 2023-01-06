@@ -1,7 +1,47 @@
-<a href='addAbrigo'>ADICIONAR</a>
+{% extends 'base.html' %}
 
-{% for abrigo in abrigos %}
-<h2><a href="{% url 'detailsAbrigo' abrigo.pk %}">{{ abrigo.nome }}</a></h2>
-<p> {{ abrigo.descricao }}</p>
-<hr>
-{% endfor %}
+{% block title %}
+Lar para Sempre • Abrigos
+{% endblock title %}
+
+{% block content %}
+
+<form method="get">
+    <input type="text" name="busca" placeholder="Buscar abrigo">
+    <button type="submit" class="btn btn-primary">
+    Buscar
+</button>
+</form>
+
+<table class="table">
+  <thead>
+    <tr>
+      <th>Abrigo</th>
+      <th>Descrição</th>
+    </tr>
+  </thead>
+  <tbody>
+  {% for abrigo in abrigos %}
+    <tr>
+      <td><a href="{% url 'detailsAbrigo' abrigo.pk %}">{{ abrigo.nome }}</a></td>
+      <td>{{ abrigo.descricao }}</td>
+      <td>
+        <a href="{% url 'updateAbrigo' abrigo.pk %}">
+      <i class="material-icons">mode_edit</i>
+        </a>
+        <a href="{% url 'deleteAbrigo' abrigo.pk %}">
+      <i class="material-icons">delete</i>
+        </a>
+      </td>
+
+    </tr>
+  {% endfor %}
+  </tbody>
+</table>
+<a href="{% url 'addAbrigo' %}">
+<button type="submit" class="btn btn-primary">
+    Cadastrar
+</button>
+</a>
+
+{% endblock content %}

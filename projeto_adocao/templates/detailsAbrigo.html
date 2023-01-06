@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+
+{% block title %}
+{{ abrigo.nome }}
+{% endblock title %}
+
+{% block content %}
+{% load static %}
+  <h2>{{ abrigo.nome }}</h2>
+  <p> {{ abrigo.descricao }}</p>
+  <img src="/image/{{ abrigo.fotos }}" width=250px/>
+  <p> {{ abrigo.endereco }}</p>
+  <p> {{ abrigo.redes_sociais }}</p>
+
+  <a href="{% url 'deleteAbrigo' abrigo.pk %}">DELETAR</a>
+  <a href="{% url 'updateAbrigo' abrigo.pk %}">EDITAR</a>
+
+{% endblock content %}
