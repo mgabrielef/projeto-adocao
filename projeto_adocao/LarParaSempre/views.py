@@ -18,7 +18,7 @@ def viewHome(request):
 def viewAbrigoDetails(request, id):
     abrigo = get_object_or_404(Abrigo, pk=id)
     context = {'abrigo':abrigo}
-    return render(request, 'detailsAbrigo.html', context)
+    return render(request, 'abrigo/detailsAbrigo.html', context)
 
 
 def viewAddAbrigo(request):
@@ -31,7 +31,7 @@ def viewAddAbrigo(request):
         form = abrigoForm()
         
     context = {'form':form}
-    return render(request, 'addAbrigo.html', context)
+    return render(request, 'abrigo/addAbrigo.html', context)
 
 def viewDeleteAbrigo(request, id):
     abrigo = get_object_or_404(Abrigo, pk=id)
@@ -39,7 +39,7 @@ def viewDeleteAbrigo(request, id):
         abrigo.delete()
         return redirect('home')
     context = {'abrigo': abrigo}
-    return render(request, 'deleteAbrigo.html', context)     
+    return render(request, 'abrigo/deleteAbrigo.html', context)     
 
 def viewUpdateAbrigo(request, id):
     abrigo = get_object_or_404(Abrigo, pk=id)
@@ -50,4 +50,4 @@ def viewUpdateAbrigo(request, id):
             return redirect('home')
     else:
         form = abrigoForm(instance=abrigo)
-    return render(request, 'updateAbrigo.html', {'form': form})            
+    return render(request, 'abrigo/updateAbrigo.html', {'form': form})            
