@@ -1,0 +1,47 @@
+{% extends 'base.html' %}
+
+{% block title %}
+Lar para Sempre • Pets
+{% endblock title %}
+
+{% block content %}
+
+<form method="get">
+    <input type="text" name="busca" placeholder="Buscar pet">
+    <button type="submit" class="btn btn-primary">
+    Buscar
+</button>
+</form>
+
+<table class="table">
+  <thead>
+    <tr>
+      <th>Pet</th>
+      <th>Descrição</th>
+    </tr>
+  </thead>
+  <tbody>
+  {% for pet in pets %}
+    <tr>
+      <td><a href="{% url 'detailsPet' pet.pk %}">{{ pet.nome }}</a></td>
+      <td>{{ pet.descricao }}</td>
+      <td>
+        <a href="{% url 'updatePet' pet.pk %}">
+      <i class="material-icons">mode_edit</i>
+        </a>
+        <a href="{% url 'deletePet' pet.pk %}">
+      <i class="material-icons">delete</i>
+        </a>
+      </td>
+
+    </tr>
+  {% endfor %}
+  </tbody>
+</table>
+<a href="{% url 'addPet' %}">
+<button type="submit" class="btn btn-primary">
+    Cadastrar
+</button>
+</a>
+
+{% endblock content %}

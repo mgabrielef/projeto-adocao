@@ -10,6 +10,11 @@ urlpatterns = [
     path('detailsAbrigo/<int:id>', viewAbrigoDetails, name='detailsAbrigo'),
     path('deleteAbrigo/<int:id>', viewDeleteAbrigo, name='deleteAbrigo'),
     path('updateAbrigo/<int:id>', viewUpdateAbrigo, name='updateAbrigo'),
+    path('listPets', viewListPets, name='listPets'),
+    path('addPet', viewAddPet, name='addPet'),
+    path('detailsPet/<int:id>', viewPetDetails, name='detailsPet'),
+    path('deletePet/<int:id>', viewDeletePet, name='deletePet'),
+    path('updatePet/<int:id>', viewUpdatePet, name='updatePet'),
 ]
 
 if settings.DEBUG:

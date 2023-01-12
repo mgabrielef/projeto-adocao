@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+
+{% block title %}
+{{ pet.nome }}
+{% endblock title %}
+
+{% block content %}
+{% load static %}
+  <h2>{{ pet.nome }}</h2>
+
+  {% comment %}
+  <img src="/image/{{ pet.fotos }}" width=250px/>
+  {% endcomment %}
+  
+  <p> {{ pet.idade }}</p>
+  <p> {{ pet.especie }}</p>
+  <p> {{ pet.raca }}</p>
+  <p> {{ pet.sexo }}</p>
+  <p> {{ pet.abrigo }}</p>
+
+  <a href="{% url 'deletePet' pet.pk %}">DELETAR</a>
+  <a href="{% url 'updatePet' pet.pk %}">EDITAR</a>
+
+{% endblock content %}

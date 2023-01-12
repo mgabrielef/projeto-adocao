@@ -11,3 +11,17 @@ class Abrigo(models.Model):
 
     def str(self):
         return self.nome
+
+
+class Pet(models.Model):
+    id = models.AutoField(primary_key=True)
+    nome = models.CharField(max_length=50)
+    fotos = models.ImageField(upload_to='Pet')
+    idade = models.IntegerField()
+    especie = models.CharField(max_length=20)
+    raca = models.CharField(max_length=20)
+    sexo = models.CharField(max_length=1)
+    abrigo = models.ForeignKey(Abrigo, on_delete=models.CASCADE)
+
+    def str(self):
+        return self.nome
