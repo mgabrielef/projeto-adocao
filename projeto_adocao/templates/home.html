@@ -42,6 +42,27 @@ Lar para Sempre • Abrigos
 <button type="submit" class="btn btn-primary">
     Cadastrar
 </button>
-</a>
+</a><br>
+
+<hr>
+
+<a class=" text-success">{% if user.is_authenticated %} Olá {{ user.username }}! {% endif %} <a/><br>
+  {% if user.is_authenticated %}
+  <p><a class="nav-link text-success" href="/accounts/logout/">Logout</a></p>
+  {% endif %}
+  {% if user.is_authenticated %}
+  <p><a class="nav-link text-success" href="/accounts/password/change/">Change Password</a></p>
+  {% endif %}
+  {% if user.is_authenticated %}
+  <p><a class="nav-link text-success" href="/accounts/email">Email</a></p>
+  {% endif %}
+  
+
+
+<a href="/accounts/signup/">Sign-Up</a><br>
+<a href="/accounts/login/">Login</a><br>
+<a href="/accounts/password/reset/">Forgot password?</a>
+
+
 
 {% endblock content %}

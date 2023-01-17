@@ -76,6 +76,7 @@ TEMPLATES = [
 ]
 
 EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
+LOGIN_REDIRECT_URL='home'
 
 MEDIA_ROOT =  os.path.join(BASE_DIR, 'image') 
 MEDIA_URL = '/image/'
