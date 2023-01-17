@@ -17,14 +17,14 @@ Lar para Sempre • Pets
   <thead>
     <tr>
       <th>Pet</th>
-      <th>Descrição</th>
+      <th>Abrigo</th>
     </tr>
   </thead>
   <tbody>
   {% for pet in pets %}
     <tr>
       <td><a href="{% url 'detailsPet' pet.pk %}">{{ pet.nome }}</a></td>
-      <td>{{ pet.descricao }}</td>
+      <td>{{ pet.abrigo }}</td>
       <td>
         <a href="{% url 'updatePet' pet.pk %}">
       <i class="material-icons">mode_edit</i>

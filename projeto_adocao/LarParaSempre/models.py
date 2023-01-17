@@ -9,7 +9,7 @@ class Abrigo(models.Model):
     endereco = models.CharField(max_length=100)
     redes_sociais = models.CharField(max_length=100)
 
-    def str(self):
+    def __str__(self):
         return self.nome
 
 
@@ -23,5 +23,5 @@ class Pet(models.Model):
     sexo = models.CharField(max_length=1)
     abrigo = models.ForeignKey(Abrigo, on_delete=models.CASCADE)
 
-    def str(self):
+    def __str__(self):
         return self.nome

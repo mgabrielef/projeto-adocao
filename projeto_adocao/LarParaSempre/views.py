@@ -1,4 +1,6 @@
 from django.shortcuts import render, redirect, get_object_or_404
+from django.http import HttpResponse
+from django.contrib.auth.models import User
 from .models import Abrigo
 from .forms import *
 
@@ -97,3 +99,4 @@ def viewUpdatePet(request, id):
     else:
         form = petForm(instance=pet)
     return render(request, 'pet/updatePet.html', {'form': form}) 
+
